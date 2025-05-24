@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encode_SS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>加密</h1>
+    {% if uploaded_filename %}
+        <p><h3>已选择图像：{{original_image}}</h3>   
+            <p><img src="{{ url_for('uploaded_file', filename=uploaded_filename) }}" alt="Uploaded Image" class="image-container"></p>
+        </p>
+    {% endif %}
+
+    {% if dictionary %}
+        <h3>Top5 Predictions:</h3>
+        <table border="1">
+        {% for key, value in dictionary.items() %}
+        <tr>
+            <td>{{key}}</td>
+            <td>{{value}}</td>
+        </tr>
+        {% endfor %}
+        
+    {% endif %}
+    
+</body>
+</html>

@@ -1,0 +1,197 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+}
+
+/* .sidebar {
+    width: 25%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #ddd;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.sidebar li:hover {
+    background-color: #bbb;
+} */
+.sidebar {
+    width: 25%; /* 左侧菜单栏占 25% 的宽度 */
+    background-color: #87CEEB; /* 天蓝色背景 */
+    padding: 20px; /* 内边距 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    color: white; /* 设置文字颜色为白色，与背景对比 */
+}
+
+.sidebar ul {
+    list-style-type: none; /* 去掉列表项的默认样式 */
+    padding: 0; /* 去掉内边距 */
+    margin: 0; /* 去掉外边距 */
+}
+
+.sidebar li {
+    margin: 10px 0; /* 列表项之间的间距 */
+    padding: 10px; /* 列表项的内边距 */
+    cursor: pointer; /* 鼠标悬停时显示为指针 */
+    background-color: #5CACEE; /* 深天蓝色背景 */
+    border-radius: 5px; /* 圆角样式 */
+    text-align: center; /* 文本居中 */
+    transition: background-color 0.3s; /* 背景色过渡效果 */
+}
+
+.sidebar li:hover {
+    background-color: #4682B4; /* 鼠标悬停时的背景色（钢蓝色） */
+}
+
+.sidebar-image {
+    width: 80px; /* 图片宽度 */
+    height: 80px; /* 图片高度 */
+    border-radius: 50%; /* 将图片裁剪为圆形 */
+    margin-bottom: 10px; /* 图片与标题之间的间距 */
+    object-fit: cover; /* 确保图片按比例裁剪 */
+    border: 2px solid white; /* 添加白色边框 */
+    object-fit:contain;
+}
+
+.header-content {
+    display: flex; /* 使用 flexbox 布局 */
+    align-items: center; /* 垂直方向居中对齐 */
+    justify-content: center; /* 水平方向居中对齐 */
+    gap: 10px; /* 图片和标题之间的间距 */
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    overflow-y: auto;
+    /* text-align: right; */
+}
+
+.content h2 {
+    margin-top: 0;
+}
+
+.content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.sidebar-header {
+    margin-bottom: 20px; /* 与下面的列表留出间距 */
+    padding: 10px;       /* 内边距，让内容更易阅读 */
+    background-color: #eaeaea; /* 设置背景色以突出显示 */
+    border-radius: 5px;  /* 圆角样式 */
+    text-align: center;  /* 文本居中对齐 */
+}
+
+.sidebar-header h3 {
+    margin: 0; /* 去掉标题的默认外边距 */
+    font-size: 28px; /* 设置标题字体大小 */
+    color: #333; /* 设置标题颜色 */
+}
+
+.sidebar-header p {
+    margin: 5px 0 0; /* 调整段落的外边距 */
+    font-size: 14px; /* 设置段落字体大小 */
+    color: #666; /* 设置段落文字颜色 */
+}
+
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.image-container {
+    max-width: 400px;
+    max-height: 300px;
+    object-fit: contain;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.round-button {
+
+    width: 40px;
+
+
+    height: 40px;
+
+
+    background-color: #1b52a3;
+
+
+    color: white;
+
+
+    border: none;
+
+
+    border-radius: 50%;
+
+
+    text-align: center;
+
+
+    line-height: 30px;
+
+
+    font-size: 10px;
+
+
+    cursor: pointer;
+
+
+}
+
+.btn{
+    width: 70px;
+    height: 30px;
+    background: green;
+    border: none;
+    color: white;
+}
+.btnStyle1{
+    border-radius: 6px;
+}
+.btnStyle2{
+    border-radius: 26px 6px;
+}
+.btnStyle3{
+    border-radius: 6px 26px 60px;
+}
+.btnStyle4{
+    border-radius: 6px 126px 236px 346px;
+}
+.bolder{
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+} */
