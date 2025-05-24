@@ -1169,42 +1169,6 @@
                     reader.readAsDataURL(this.files[0]);
                 }
             });
-            
-            // 服饰分类表单提交
-            $('#clothesClassifyForm').submit(function(e) {
-                e.preventDefault();
-                
-                if (!$('#clothesImage').val()) {
-                    alert('请选择要识别的图片');
-                    return;
-                }
-                
-                // TODO: 实现分类API调用
-                alert('分类功能需要后端API支持');
-            });
-            
-            // 显示民族简介信息
-            function showNationInfo(nation) {
-                const nationInfo = getNationDescription(nation);
-                if (nationInfo) {
-                    $('#nationInfoTitle').text(nation + '服饰特点');
-                    $('#nationDescription').html(nationInfo);
-                    $('#nationInfo').removeClass('d-none');
-                } else {
-                    $('#nationInfo').addClass('d-none');
-                }
-            }
-            
-            // 获取民族简介
-            function getNationDescription(nation) {
-                const descriptions = {
-                    '汉族': '汉族服饰历史悠久，风格多样，常见的有旗袍、长衫、马褂等。传统汉服以宽袖、交领、系带为特点，颜色多为素雅，刺绣精美，象征着中华文明的源远流长。',
-                    '蒙古族': '蒙古族服饰以长袍为主，称为"蒙古袍"，特点是大襟、对襟，腰间系带。男女服装区别不大，颜色鲜艳，多以棉布、皮毛、呢绒为材料，适应北方游牧生活。',
-                    // ... 其他民族描述保持不变 ...
-                };
-                
-                return descriptions[nation] || null;
-            }
         });
 
         $('.nav-link').click(function(e) {
