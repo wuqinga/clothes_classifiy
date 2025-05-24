@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复旦大学多媒体与人工智能安全实验室</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 添加Google字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- 先加载jQuery库 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- 背景动画元素 -->
+    <div class="tech-circles"></div>
+    <div class="tech-grid"></div>
+    <div class="perspective-grid"></div>
+
+    <div class="container-fluid">
+        <header class="py-3">
+            <div class="corner-decoration top-right"></div>
+            <div class="data-bar"></div>
+            <div class="row align-items-center">
+                <div class="col-md-2 text-center text-md-start mb-2 mb-md-0">
+                    <div class="logo-container">
+                        <div class="tech-container">
+                            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="MAS Logo" class="img-fluid" style="max-height: 70px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10 text-center text-md-start">
+                    <h1 class="display-5 fw-bold">复旦大学计算机学院多媒体与人工智能安全实验室</h1>
+                </div>
+            </div>
+        </header>
+
+        <div class="row g-0">
+            <!-- 左侧导航栏 -->
+            <div class="col-md-2 sidebar">
+                <nav class="nav flex-column">
+                    <div class="nav-header mb-3 ps-3">
+                        <i class="fas fa-project-diagram me-2"></i> 技术项目
+                    </div>
+                    <a class="nav-link active" href="#" data-section="stegastamp">
+                        <i class="fas fa-stamp me-2"></i>StegaStamp
+                    </a>
+                    <a class="nav-link" href="#" data-section="printwatermark">
+                        <i class="fas fa-tint me-2"></i>PrintWatermark
+                    </a>
+                    <a class="nav-link" href="#" data-section="waterdrifting">
+                        <i class="fas fa-water me-2"></i>WaterDrifting
+                    </a>
+                    <a class="nav-link" href="#" data-section="wrinkle">
+                        <i class="fas fa-wave-square me-2"></i>Wrinkle
+                    </a>
+                    <a class="nav-link" href="#" data-section="texture">
+                        <i class="fas fa-th me-2"></i>Texture
+                    </a>
+                    <a class="nav-link" href="#" data-section="clothes">
+                        <i class="fas fa-tshirt me-2"></i>Clothes
+                    </a>
+                    <a class="nav-link" href="#" data-section="wrap">
+                        <i class="fas fa-box me-2"></i>WRAP
+                    </a>
+                </nav>
+            </div>
+
+            <!-- 主内容区 -->
+            <div class="col-md-10 main-content">
+                <!-- StegaStamp 部分 -->
+                <section id="stegastamp" class="content-section active">
+                    <div class="card mb-3">
+                        <div class="corner-decoration top-right"></div>
+                        <div class="data-bar"></div>
+                        <div class="card-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-lock-open fa-lg me-3 text-primary"></i>
+                                <h2 class="mb-0">StegaStamp 隐写技术</h2>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-10">
+                                    <p class="card-text text-white">StegaStamp是一种基于深度学习的隐写技术，可在物理图像中嵌入不可见的数字水印。该技术即使在打印、拍照或扫描后，仍能准确恢复隐藏的信息。应用于安全验证、防伪和信息隐藏等领域。</p>
+                                    <ul class="feature-list mt-3 text-white">
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>可在任意图像中嵌入恰好100位二进制水印信息</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>水印对人眼几乎不可见，最大程度保持图像原始视觉效果</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>采用深度神经网络编解码，增强水印的鲁棒性</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>对JPEG压缩、噪声、模糊、对比度变化等多种图像处理具有高度抵抗性</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2 text-end">
+                                    <div class="tech-icon-container">
+                                        <i class="fas fa-fingerprint fa-4x text-primary opacity-25"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 主操作区域 -->
+                    <div class="row g-3">
+                        <!-- 加密和解密部分 -->
+                        <div class="col-md-8">
+                            <div class="row g-3">
+                                <!-- 加密部分 -->
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="corner-decoration top-right"></div>
+                                        <div class="data-bar"></div>
+                                        <div class="card-header">
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-shield-alt me-2"></i>
+                                                <h3 class="mb-0">图像加密</h3>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="encodeForm" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <label for="encodeImage" class="form-label">
+                                                        <i class="fas fa-image me-2"></i>选择加密的图片
+                                                    </label>
+                                                    <div class="custom-file-container">
+                                                        <input type="file" class="form-control" id="encodeImage" name="image" accept="image/*" required>
+                                                    </div>
+                                                    <div class="mt-3 text-center">
+                                                        <img id="encodePreview" class="img-preview d-none" alt="预览图">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="secretMessage" class="form-label">
+                                                        <i class="fas fa-key me-2"></i>加密信息
+                                                    </label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control code-font" id="secretMessage" name="secret" maxlength="100" minlength="100" pattern="[0-1]{100}" required>
+                                                        <button type="button" class="btn btn-outline-secondary" id="generateRandom">
+                                                            <i class="fas fa-random me-1"></i>随机
+                                                        </button>
+                                                    </div>
+                                                    <div class="form-text mt-2 text-center">请输入恰好<b>100位</b>的二进制字符串（只能包含0和1）。</div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary w-100 mt-3">
+                                                    <i class="fas fa-lock me-2"></i>加密图像
+                                                </button>
+                                            </form>
+                                            
+                                            <div id="encodeResult" class="mt-4 d-none">
+                                                <div class="result-header">
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    <h4 class="mb-0">加密结果</h4>
+                                                </div>
+                                                <div class="text-center mt-3">
+                                                    <div class="encoded-image-container">
+                                                        <img id="encodedImage" class="img-fluid mb-3" alt="加密后的图像">
+                                                    </div>
+                                                    <div class="mt-3">
+                                                        <a id="downloadEncodedBtn" class="btn btn-success" download>
+                                                            <i class="fas fa-download me-2"></i>下载加密图像
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 解密部分 -->
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="corner-decoration top-right"></div>
+                                        <div class="data-bar"></div>
+                                        <div class="card-header">
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-unlock-alt me-2"></i>
+                                                <h3 class="mb-0">图像解密</h3>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="decodeForm" enctype="multipart/form-data">
+                                                <div class="mb-3">
+                                                    <label for="decodeImage" class="form-label">
+                                                        <i class="fas fa-file-image me-2"></i>选择解密的图片
+                                                    </label>
+                                                    <div class="custom-file-container">
+                                                        <input type="file" class="form-control" id="decodeImage" name="image" accept="image/*" required>
+                                                    </div>
+                                                    <div class="mt-3 text-center">
+                                                        <img id="decodePreview" class="img-preview d-none" alt="预览图">
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary w-100 mt-3">
+                                                    <i class="fas fa-unlock-alt me-2"></i>解密图像
+                                                </button>
+                                            </form>
+                                            
+                                            <div id="decodeResult" class="mt-4 d-none">
+                                                <div class="result-header">
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    <h4 class="mb-0">解密结果</h4>
+                                                </div>
+                                                <div class="decode-result-container mt-3">
+                                                    <div class="result-section">
+                                                        <div class="corner-decoration top-right"></div>
+                                                        <div class="section-header">
+                                                            <i class="fas fa-code me-2"></i>
+                                                            <h5 class="mb-0">二进制信息</h5>
+                                                        </div>
+                                                        <div class="section-content">
+                                                            <p id="decodedMessage" class="mb-0 code-font"></p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="result-section mt-3">
+                                                        <div class="corner-decoration top-right"></div>
+                                                        <div class="section-header">
+                                                            <i class="fas fa-microscope me-2"></i>
+                                                            <h5 class="mb-0">二进制细节分析</h5>
+                                                            <small class="ms-auto text-muted">
+                                                                <span class="error-bit-indicator"></span> 错误位
+                                                                <span class="correct-bit-indicator ms-2"></span> 正确位
+                                                            </small>
+                                                        </div>
+                                                        <div class="section-content binary-content">
+                                                            <div id="decodedBinary" class="mb-0 secret-text binary-display"></div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div id="accuracyResult" class="result-section mt-3 d-none">
+                                                        <div class="corner-decoration top-right"></div>
+                                                        <div class="section-header">
+                                                            <i class="fas fa-chart-pie me-2"></i>
+                                                            <h5 class="mb-0">解码准确率</h5>
+                                                        </div>
+                                                        <div class="section-content text-center">
+                                                            <div class="accuracy-display">
+                                                                <span id="decodedAccuracy" class="accuracy-value"></span>
+                                                            </div>
+                                                            <div class="progress mt-3" style="height: 8px;">
+                                                                <div id="accuracyProgressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                                                            </div>
+                                                            <div class="accuracy-details mt-2">
+                                                                <small>正确位: <span id="correctBits" class="fw-bold text-success"></span> / 
+                                                                错误位: <span id="wrongBits" class="fw-bold text-danger"></span></small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 图像处理部分 - 改为右侧布局 -->
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="corner-decoration top-right"></div>
+                                <div class="data-bar"></div>
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-flask me-2"></i>
+                                        <h3 class="mb-0">图像处理测试</h3>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="tech-badge me-2">
+                                                <i class="fas fa-vial"></i>
+                                            </div>
+                                            <p class="mb-0">测试加密图像在各种处理条件下的鲁棒性</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <form id="processForm" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <label for="processImage" class="form-label">
+                                                <i class="fas fa-image me-2"></i>选择要处理的图片
+                                            </label>
+                                            <div class="custom-file-container">
+                                                <input type="file" class="form-control" id="processImage" name="image" accept="image/*" required>
+                                            </div>
+                                            <div class="mt-2 text-center">
+                                                <img id="processPreview" class="img-preview d-none" alt="预览图" style="max-height: 150px;">
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="processType" class="form-label">
+                                                <i class="fas fa-sliders-h me-2"></i>处理类型
+                                            </label>
+                                            <select class="form-select" id="processType" name="type" required>
+                                                <option value="jpeg">JPEG压缩</option>
+                                                <option value="noise">高斯噪声</option>
+                                                <option value="blur">模糊</option>
+                                                <option value="contrast">对比度调整</option>
+                                                <option value="brightness">亮度调整</option>
+                                                <option value="color">颜色调整</option>
+                                                <option value="cutout">区域遮挡</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="intensity" class="form-label">
+                                                <i class="fas fa-tachometer-alt me-2"></i>处理强度
+                                            </label>
+                                            <input type="range" class="form-range" id="intensity" name="intensity" min="1" max="5" value="1">
+                                            <div class="d-flex justify-content-between mt-1">
+                                                <span class="badge bg-primary">低</span>
+                                                <span class="badge bg-danger">高</span>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100 mt-2">
+                                            <i class="fas fa-magic me-2"></i>应用处理效果
+                                        </button>
+                                    </form>
+                                    
+                                    <!-- 处理结果内嵌在这里 -->
+                                    <div id="processResult" class="mt-4 d-none">
+                                        <div class="result-section">
+                                            <div class="corner-decoration top-right"></div>
+                                            <div class="section-header">
+                                                <i class="fas fa-image me-2"></i>
+                                                <h5 class="mb-0">处理后图像</h5>
+                                            </div>
+                                            <div class="section-content p-3 text-center">
+                                                <div class="encoded-image-container">
+                                                    <img id="processedImage" class="img-fluid mb-3" alt="处理后的图像">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <a id="downloadProcessedBtn" class="btn btn-success btn-sm" download>
+                                                        <i class="fas fa-download me-2"></i>下载处理图像
+                                                    </a>
+                                                </div>
+                                                <button id="decodeProcessedBtn" class="btn btn-info btn-sm">
+                                                    <i class="fas fa-unlock-alt me-2"></i>解码处理后图像
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- 解码结果直接在下面显示 -->
+                                        <div id="processedDecodeResult" class="mt-3 d-none">
+                                            <!-- 二进制信息和细节分析 -->
+                                            <div class="result-section">
+                                                <div class="corner-decoration top-right"></div>
+                                                <div class="section-header">
+                                                    <i class="fas fa-code me-2"></i>
+                                                    <h5 class="mb-0">二进制信息</h5>
+                                                </div>
+                                                <div class="section-content">
+                                                    <p id="processedDecodedMessage" class="mb-0 code-font"></p>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- 解码准确率 -->
+                                            <div class="result-section mt-3">
+                                                <div class="corner-decoration top-right"></div>
+                                                <div class="section-header">
+                                                    <i class="fas fa-chart-pie me-2"></i>
+                                                    <h5 class="mb-0">解码准确率</h5>
+                                                </div>
+                                                <div class="section-content text-center">
+                                                    <div id="processedAccuracyResult">
+                                                        <div class="accuracy-display">
+                                                            <span id="processedDecodedAccuracy" class="accuracy-value"></span>
+                                                        </div>
+                                                        <div class="progress mt-3" style="height: 8px;">
+                                                            <div id="processedAccuracyProgressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+                                                        </div>
+                                                        <div class="accuracy-details mt-2">
+                                                            <small>正确位: <span id="processedCorrectBits" class="fw-bold text-success"></span> / 
+                                                            错误位: <span id="processedWrongBits" class="fw-bold text-danger"></span></small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- 二进制细节分析 -->
+                                            <div class="result-section mt-3">
+                                                <div class="corner-decoration top-right"></div>
+                                                <div class="section-header">
+                                                    <i class="fas fa-microscope me-2"></i>
+                                                    <h5 class="mb-0">二进制细节分析</h5>
+                                                    <small class="ms-auto text-muted">
+                                                        <span class="error-bit-indicator"></span> 错误位
+                                                        <span class="correct-bit-indicator ms-2"></span> 正确位
+                                                    </small>
+                                                </div>
+                                                <div class="section-content binary-content">
+                                                    <div id="processedDecodedBinary" class="mb-0 secret-text binary-display"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 其他方法部分（占位） -->
+                <section id="printwatermark" class="content-section d-none">
+                    <div class="card mb-4">
+                        <div class="corner-decoration top-right"></div>
+                        <div class="data-bar"></div>
+                        <div class="card-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-tint me-3 text-primary"></i>
+                                <h2 class="mb-0">PrintWatermark 印刷水印技术</h2>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-10">
+                                    <p class="card-text text-white">印刷水印是一种针对实体印刷文档的防伪技术，能够在打印后的图像中嵌入不可见的数字信息。这种技术在打印-扫描过程后仍能保持水印的完整性，适用于各类印刷品的防伪、溯源和版权保护。</p>
+                                    <ul class="feature-list mt-3 text-white">
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>能够在图像中嵌入0-65535范围内的数字</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>水印对人眼几乎不可见，不影响图像原始视觉效果</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>采用BCH编码确保解码可靠性，提高抗干扰能力</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>即使经过打印和扫描，水印信息仍可被成功提取</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2 text-end">
+                                    <div class="tech-icon-container">
+                                        <i class="fas fa-print fa-4x text-primary opacity-25"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 主操作区域 -->
+                    <div class="row g-3">
+                        <!-- 加密和解密部分 -->
+                        <div class="col-md-8">
+                            <div class="row g-3">
+                                <!-- 加密部分 -->
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="corner-decoration top-right"></div>
+                                        <div class="data-bar"></div>
+                                        <div class="card-header">
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-shield-alt me-2"></i>
+                                                <h3 class="mb-0">图像加密</h3>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="printEncodeForm" enctype="multipart/form-data" onsubmit="return false;">
+                                                <div class="mb-3">
+                                                    <label for="printEncodeImage" class="form-label">
+                                                        <i class="fas fa-image me-2"></i>选择加密的图片
+                                                    </label>
+                                                    <div class="custom-file-container">
+                                                        <input type="file" class="form-control" id="printEncodeImage" name="image" accept="image/*" required>
+                                                    </div>
+                                                    <div class="mt-3 text-center">
+                                                        <img id="printEncodePreview" class="img-preview d-none" alt="预览图">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="printSecretMessage" class="form-label">
+                                                        <i class="fas fa-key me-2"></i>加密数值
+                                                    </label>
+                                                    <div class="input-group">
+                                                        <input type="number" class="form-control code-font" id="printSecretMessage" name="message" min="0" max="65535" required>
+                                                        <button type="button" class="btn btn-outline-secondary" id="printGenerateRandom">
+                                                            <i class="fas fa-random me-1"></i>随机
+                                                        </button>
+                                                    </div>
+                                                    <div class="form-text mt-2 text-center" style="color: #ffffff; font-weight: bold;">请输入<b>0-65535</b>之间的整数作为加密数值。</div>
+                                                </div>
+                                                <button type="button" id="printEncodeSubmitBtn" class="btn btn-primary w-100 mt-3">
+                                                    <i class="fas fa-lock me-2"></i>加密图像
+                                                </button>
+                                            </form>
+                                            
+                                            <div id="printEncodeResult" class="mt-4 d-none">
+                                                <div class="result-header">
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    <h4 class="mb-0">加密结果</h4>
+                                                </div>
+                                                <div class="text-center mt-3">
+                                                    <div class="encoded-image-container">
+                                                        <img id="printEncodedImage" class="img-fluid mb-3" alt="加密后的图像">
+                                                    </div>
+                                                    <div class="mt-3">
+                                                        <a id="printDownloadEncodedBtn" class="btn btn-success" download>
+                                                            <i class="fas fa-download me-2"></i>下载加密图像
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 解密部分 -->
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="corner-decoration top-right"></div>
+                                        <div class="data-bar"></div>
+                                        <div class="card-header">
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-unlock-alt me-2"></i>
+                                                <h3 class="mb-0">图像解密</h3>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="printDecodeForm" enctype="multipart/form-data" onsubmit="return false;">
+                                                <div class="mb-3">
+                                                    <label for="printDecodeImage" class="form-label">
+                                                        <i class="fas fa-file-image me-2"></i>选择解密的图片
+                                                    </label>
+                                                    <div class="custom-file-container">
+                                                        <input type="file" class="form-control" id="printDecodeImage" name="image" accept="image/*" required>
+                                                    </div>
+                                                    <div class="mt-3 text-center">
+                                                        <img id="printDecodePreview" class="img-preview d-none" alt="预览图">
+                                                    </div>
+                                                </div>
+                                                <button type="button" id="printDecodeSubmitBtn" class="btn btn-primary w-100 mt-3">
+                                                    <i class="fas fa-unlock-alt me-2"></i>解密图像
+                                                </button>
+                                            </form>
+                                            
+                                            <div id="printDecodeResult" class="mt-4 d-none">
+                                                <div class="result-header">
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    <h4 class="mb-0">解密结果</h4>
+                                                </div>
+                                                <div class="decode-result-container mt-3">
+                                                    <div class="result-section">
+                                                        <div class="corner-decoration top-right"></div>
+                                                        <div class="section-header">
+                                                            <i class="fas fa-key me-2"></i>
+                                                            <h5 class="mb-0">解密数值</h5>
+                                                        </div>
+                                                        <div class="section-content text-center">
+                                                            <p id="printDecodedMessage" class="mb-0 secret-text fs-1"></p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="result-section mt-3">
+                                                        <div class="corner-decoration top-right"></div>
+                                                        <div class="section-header">
+                                                            <i class="fas fa-binary me-2"></i>
+                                                            <h5 class="mb-0">二进制表示</h5>
+                                                        </div>
+                                                        <div class="section-content text-center">
+                                                            <div id="printDecodedBinary" class="mb-0 code-font"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 工作原理和应用场景侧边栏 -->
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="corner-decoration top-right"></div>
+                                <div class="data-bar"></div>
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-cogs me-2"></i>
+                                        <h3 class="mb-0">工作原理</h3>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tech-diagram mb-3 p-3 text-center">
+                                        <img src="{{ url_for('static', filename='images/print-watermark-flow.png') }}" alt="印刷水印工作原理" class="img-fluid" onerror="this.style.display='none'">
+                                    </div>
+                                    <ol class="workflow-list">
+                                        <li>输入需要保护的图像和待嵌入的数字信息</li>
+                                        <li>将数字信息通过BCH编码进行纠错编码</li>
+                                        <li>使用深度学习编码器生成水印残差</li>
+                                        <li>将水印残差叠加到原始图像上，生成含水印图像</li>
+                                        <li>印刷水印图像，在需要时通过扫描获取</li>
+                                        <li>使用解码器从扫描图像中提取数字信息</li>
+                                    </ol>
+                                    
+                                    <div class="mt-4">
+                                        <h5 class="mb-3"><i class="fas fa-lightbulb me-2 text-primary"></i>应用场景</h5>
+                                        <div class="application-items">
+                                            <div class="app-item mb-2">
+                                                <span class="badge bg-primary me-2"><i class="fas fa-file-contract"></i></span>
+                                                证书和官方文件防伪
+                                            </div>
+                                            <div class="app-item mb-2">
+                                                <span class="badge bg-success me-2"><i class="fas fa-ticket-alt"></i></span>
+                                                票据和证件保护
+                                            </div>
+                                            <div class="app-item">
+                                                <span class="badge bg-info me-2"><i class="fas fa-copyright"></i></span>
+                                                艺术品版权保护与溯源
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="waterdrifting" class="content-section d-none">
+                    <div class="card">
+                        <div class="corner-decoration top-right"></div>
+                        <div class="card-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-water me-2"></i>
+                                <h3 class="mb-0">WaterDrifting 方法</h3>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>WaterDrifting 功能正在开发中...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="wrinkle" class="content-section d-none">
+                    <div class="card">
+                        <div class="corner-decoration top-right"></div>
+                        <div class="card-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-wave-square me-2"></i>
+                                <h3 class="mb-0">Wrinkle 方法</h3>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>Wrinkle 功能正在开发中...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="texture" class="content-section d-none">
+                    <div class="card mb-4">
+                        <div class="corner-decoration top-right"></div>
+                        <div class="data-bar"></div>
+                        <div class="card-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-th me-3 text-primary"></i>
+                                <h2 class="mb-0">Texture 纹理水印技术</h2>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-10">
+                                    <p class="card-text text-white">纹理水印是一种利用图像的纹理特性嵌入数字信息的技术。通过对纹理区域进行细微调整，可以在不影响视觉效果的前提下嵌入二进制信息，这些嵌入的信息能够抵抗各种图像处理操作，保持水印的稳定性和可靠性。</p>
+                                    <ul class="feature-list mt-3 text-white">
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>可在图像纹理中嵌入任意长度的二进制数据</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>水印对视觉几乎不可见，保持原图美观度</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>采用BCH编码提高解码可靠性和抗干扰能力</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>适用于各种纹理丰富的图像，如自然场景、织物图案等</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2 text-end">
+                                    <div class="tech-icon-container">
+                                        <i class="fas fa-th fa-4x text-primary opacity-25"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 主操作区域 -->
+                    <div class="row g-3">
+                        <!-- 加密和解密部分 -->
+                        <div class="col-md-8">
+                            <div class="row g-3">
+                                <!-- 加密部分 -->
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="corner-decoration top-right"></div>
+                                        <div class="data-bar"></div>
+                                        <div class="card-header">
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-shield-alt me-2"></i>
+                                                <h3 class="mb-0">图像加密</h3>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="textureEncodeForm" enctype="multipart/form-data" onsubmit="return false;">
+                                                <div class="mb-3">
+                                                    <label for="textureEncodeImage" class="form-label">
+                                                        <i class="fas fa-image me-2"></i>选择加密的图片
+                                                    </label>
+                                                    <div class="custom-file-container">
+                                                        <input type="file" class="form-control" id="textureEncodeImage" name="image" accept="image/*" required>
+                                                    </div>
+                                                    <div class="mt-3 text-center">
+                                                        <img id="textureEncodePreview" class="img-preview d-none" alt="预览图">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="textureSecretMessage" class="form-label">
+                                                        <i class="fas fa-key me-2"></i>加密消息
+                                                    </label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control code-font" id="textureSecretMessage" name="message" required>
+                                                        <button type="button" class="btn btn-outline-secondary" id="textureGenerateRandom">
+                                                            <i class="fas fa-random me-1"></i>随机
+                                                        </button>
+                                                    </div>
+                                                    <div class="form-text mt-2 text-center" style="font-weight: bold;">请输入需要嵌入的二进制序列（如：01101）或文本信息。</div>
+                                                </div>
+                                                <button type="button" id="textureEncodeSubmitBtn" class="btn btn-primary w-100 mt-3">
+                                                    <i class="fas fa-lock me-2"></i>加密图像
+                                                </button>
+                                            </form>
+                                            
+                                            <div id="textureEncodeResult" class="mt-4 d-none">
+                                                <div class="result-header">
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    <h4 class="mb-0">加密结果</h4>
+                                                </div>
+                                                <div class="text-center mt-3">
+                                                    <div class="encoded-image-container">
+                                                        <img id="textureEncodedImage" class="img-fluid mb-3" alt="加密后的图像">
+                                                    </div>
+                                                    <div class="mt-3">
+                                                        <a id="textureDownloadEncodedBtn" class="btn btn-success" download>
+                                                            <i class="fas fa-download me-2"></i>下载加密图像
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 解密部分 -->
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="corner-decoration top-right"></div>
+                                        <div class="data-bar"></div>
+                                        <div class="card-header">
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-unlock-alt me-2"></i>
+                                                <h3 class="mb-0">图像解密</h3>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="textureDecodeForm" enctype="multipart/form-data" onsubmit="return false;">
+                                                <div class="mb-3">
+                                                    <label for="textureDecodeImage" class="form-label">
+                                                        <i class="fas fa-file-image me-2"></i>选择解密的图片
+                                                    </label>
+                                                    <div class="custom-file-container">
+                                                        <input type="file" class="form-control" id="textureDecodeImage" name="image" accept="image/*" required>
+                                                    </div>
+                                                    <div class="mt-3 text-center">
+                                                        <img id="textureDecodePreview" class="img-preview d-none" alt="预览图">
+                                                    </div>
+                                                </div>
+                                                <button type="button" id="textureDecodeSubmitBtn" class="btn btn-primary w-100 mt-3">
+                                                    <i class="fas fa-unlock-alt me-2"></i>解密图像
+                                                </button>
+                                            </form>
+                                            
+                                            <div id="textureDecodeResult" class="mt-4 d-none">
+                                                <div class="result-header">
+                                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                                    <h4 class="mb-0">解密结果</h4>
+                                                </div>
+                                                <div class="decode-result-container mt-3">
+                                                    <div class="result-section">
+                                                        <div class="corner-decoration top-right"></div>
+                                                        <div class="section-header">
+                                                            <i class="fas fa-key me-2"></i>
+                                                            <h5 class="mb-0">解密信息</h5>
+                                                        </div>
+                                                        <div class="section-content text-center">
+                                                            <p id="textureDecodedMessage" class="mb-0 secret-text fs-4"></p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="result-section mt-3">
+                                                        <div class="corner-decoration top-right"></div>
+                                                        <div class="section-header">
+                                                            <i class="fas fa-binary me-2"></i>
+                                                            <h5 class="mb-0">二进制表示</h5>
+                                                        </div>
+                                                        <div class="section-content text-center">
+                                                            <div id="textureDecodedBinary" class="mb-0 code-font"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 工作原理和应用场景侧边栏 -->
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="corner-decoration top-right"></div>
+                                <div class="data-bar"></div>
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-cogs me-2"></i>
+                                        <h3 class="mb-0">工作原理</h3>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tech-diagram mb-3 p-3 text-center">
+                                        <img src="{{ url_for('static', filename='images/texture-watermark-flow.png') }}" alt="纹理水印工作原理" class="img-fluid" onerror="this.style.display='none'">
+                                    </div>
+                                    <ol class="workflow-list">
+                                        <li>对输入的纹理图像进行分析，确定适合嵌入信息的区域</li>
+                                        <li>将待嵌入的信息进行BCH编码，增强其鲁棒性</li>
+                                        <li>使用纹理合成算法在图像中嵌入编码后的信息</li>
+                                        <li>生成包含嵌入信息的水印图像，保持原始视觉效果</li>
+                                        <li>通过特定的提取算法从水印图像中解析出隐藏信息</li>
+                                        <li>对提取的信息进行BCH解码，恢复原始数据</li>
+                                    </ol>
+                                    
+                                    <div class="mt-4">
+                                        <h5 class="mb-3"><i class="fas fa-lightbulb me-2 text-primary"></i>应用场景</h5>
+                                        <div class="application-items">
+                                            <div class="app-item mb-2">
+                                                <span class="badge bg-primary me-2"><i class="fas fa-copyright"></i></span>
+                                                数字图像版权保护
+                                            </div>
+                                            <div class="app-item mb-2">
+                                                <span class="badge bg-success me-2"><i class="fas fa-palette"></i></span>
+                                                艺术品和纹理丰富场景的信息隐藏
+                                            </div>
+                                            <div class="app-item">
+                                                <span class="badge bg-info me-2"><i class="fas fa-shield-alt"></i></span>
+                                                安全图像传输与身份验证
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="wrap" class="content-section d-none">
+                    <div class="card">
+                        <div class="corner-decoration top-right"></div>
+                        <div class="card-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-box me-2"></i>
+                                <h3 class="mb-0">WRAP 方法</h3>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <p>WRAP 功能正在开发中...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 民族服饰分类部分 -->
+                <section id="clothes" class="content-section d-none">
+                    <div class="card mb-4">
+                        <div class="corner-decoration top-right"></div>
+                        <div class="data-bar"></div>
+                        <div class="card-header">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-tshirt me-3 text-primary"></i>
+                                <h2 class="mb-0">民族服饰分类技术</h2>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-10">
+                                    <p class="card-text text-white">该技术基于深度学习的Swin Transformer模型，能够准确识别不同民族的传统服饰。系统支持多达20个中国民族服饰的识别，包括汉族、蒙古族、藏族等，可用于文化研究、博物馆展示和智能分类系统。</p>
+                                    <ul class="feature-list mt-3 text-white">
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>支持20个中国民族服饰的精确识别</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>基于先进的Swin Transformer模型架构</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>提供多个可能的分类结果及其概率</li>
+                                        <li><i class="fas fa-check-circle text-success me-2"></i>适用于博物馆展品分类和文化研究</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-2 text-end">
+                                    <div class="tech-icon-container">
+                                        <i class="fas fa-users fa-4x text-primary opacity-25"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 主操作区域 -->
+                    <div class="row g-3">
+                        <!-- 上传和分类区域 -->
+                        <div class="col-md-8">
+                            <div class="card h-100">
+                                <div class="corner-decoration top-right"></div>
+                                <div class="data-bar"></div>
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-camera me-2"></i>
+                                        <h3 class="mb-0">服饰分类</h3>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <form id="clothesClassifyForm" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <label for="clothesImage" class="form-label">
+                                                <i class="fas fa-image me-2"></i>选择服饰图片
+                                            </label>
+                                            <div class="custom-file-container">
+                                                <input type="file" class="form-control" id="clothesImage" name="image" accept="image/*" required>
+                                            </div>
+                                            <div class="mt-3 text-center">
+                                                <img id="clothesPreview" class="img-preview d-none" alt="预览图" style="max-height: 300px;">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100 mt-3">
+                                            <i class="fas fa-search me-2"></i>识别服饰
+                                        </button>
+                                    </form>
+                                    
+                                    <!-- 分类结果 -->
+                                    <div id="clothesResult" class="mt-4 d-none">
+                                        <div class="result-header">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <h4 class="mb-0">识别结果</h4>
+                                        </div>
+                                        <div class="result-container mt-3">
+                                            <div class="result-section">
+                                                <div class="corner-decoration top-right"></div>
+                                                <div class="section-header">
+                                                    <i class="fas fa-tag me-2"></i>
+                                                    <h5 class="mb-0">最可能的民族服饰</h5>
+                                                </div>
+                                                <div class="section-content p-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="top-result">
+                                                            <h2 id="topNation" class="mb-0 text-primary"></h2>
+                                                        </div>
+                                                        <div class="ms-auto">
+                                                            <div class="top-probability">
+                                                                <span id="topProbability" class="fs-4 fw-bold"></span>
+                                                                <div class="progress mt-2" style="height: 8px; width: 100px;">
+                                                                    <div id="topProbabilityBar" class="progress-bar bg-primary" role="progressbar" style="width: 0%"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="result-section mt-3">
+                                                <div class="corner-decoration top-right"></div>
+                                                <div class="section-header">
+                                                    <i class="fas fa-list-ol me-2"></i>
+                                                    <h5 class="mb-0">其他可能的民族</h5>
+                                                </div>
+                                                <div class="section-content">
+                                                    <div id="otherResults" class="other-results-container">
+                                                        <!-- 其他结果将由JS动态添加 -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 民族文化介绍侧边栏 -->
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="corner-decoration top-right"></div>
+                                <div class="data-bar"></div>
+                                <div class="card-header">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-info-circle me-2"></i>
+                                        <h3 class="mb-0">关于民族服饰</h3>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-4">
+                                        <h5 class="mb-3"><i class="fas fa-map-marker-alt me-2 text-primary"></i>中国民族多样性</h5>
+                                        <p class="text-white">中国有56个民族，每个民族都有其独特的文化传统和服饰特色。民族服饰是民族文化的重要组成部分，承载着丰富的历史和文化信息。</p>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <h5 class="mb-3"><i class="fas fa-book me-2 text-primary"></i>服饰文化价值</h5>
+                                        <p class="text-white">民族服饰不仅具有实用功能，还具有审美、象征和社会功能。它们反映了不同民族的美学观念、生活方式、宗教信仰和社会结构。</p>
+                                    </div>
+                                    
+                                    <div id="nationInfo" class="nation-info d-none">
+                                        <div class="corner-decoration top-right"></div>
+                                        <h5 class="mb-3"><i class="fas fa-info-circle me-2 text-primary"></i><span id="nationInfoTitle" class="text-white"></span></h5>
+                                        <div id="nationDescription" class="nation-description text-white"></div>
+                                    </div>
+                                    
+                                    <div class="nation-list mt-4">
+                                        <h5 class="mb-3"><i class="fas fa-list me-2 text-primary"></i>支持识别的民族</h5>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <ul class="list-unstyled text-white">
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>汉族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>蒙古族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>藏族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>苗族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>彝族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>壮族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>布依族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>维吾尔族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>回族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>朝鲜族</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-6">
+                                                <ul class="list-unstyled text-white">
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>满族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>侗族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>瑶族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>白族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>土家族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>傣族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>僳僳族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>畲族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>羌族</li>
+                                                    <li><i class="fas fa-circle text-primary me-2 small"></i>俄罗斯族</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <footer class="mt-4 py-3 text-center border-top">
+            <div class="data-bar"></div>
+            <p>© 2023 复旦大学计算机学院多媒体与人工智能安全实验室</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        // PrintWatermark 模块功能
+        $(document).ready(function() {
+            // 生成随机数值
+            $('#printGenerateRandom').click(function() {
+                const randomValue = Math.floor(Math.random() * 65536);
+                $('#printSecretMessage').val(randomValue);
+            });
+
+            // 显示上传图片预览
+            $('#printEncodeImage').change(function() {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#printEncodePreview').attr('src', e.target.result).removeClass('d-none');
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+            $('#printDecodeImage').change(function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    const fileName = file.name.toLowerCase();
+                    
+                    // 检查是否为TIFF文件
+                    if (fileName.endsWith('.tiff') || fileName.endsWith('.tif')) {
+                        // 显示提示信息
+                        console.log('选择了TIFF文件，正在尝试预览');
+                        
+                        // 创建FormData对象并添加TIFF文件
+                        const formData = new FormData();
+                        formData.append('file', file);
+                        
+                        // 显示"处理中"的提示
+                        $('#printDecodePreview').attr('src', '{{ url_for("static", filename="images/processing.gif") }}').removeClass('d-none');
+                        
+                        // 将文件上传到服务器先进行转换
+                        $.ajax({
+                            url: '/processed/preview',
+                            type: 'POST',
+                            data: formData,
+                            processData: false,
+                            contentType: false,
+                            success: function(response) {
+                                if (response.success) {
+                                    // 加载转换后的预览图像（添加时间戳避免缓存）
+                                    const timestamp = new Date().getTime();
+                                    $('#printDecodePreview').attr('src', '/processed/' + response.preview + '?t=' + timestamp).removeClass('d-none');
+                                } else {
+                                    // 如果转换失败，回退到默认方法
+                                    const reader = new FileReader();
+                                    reader.onload = function(e) {
+                                        $('#printDecodePreview').attr('src', e.target.result).removeClass('d-none');
+                                    }
+                                    reader.readAsDataURL(file);
+                                }
+                            },
+                            error: function() {
+                                // 错误时回退到默认方法
+                                const reader = new FileReader();
+                                reader.onload = function(e) {
+                                    $('#printDecodePreview').attr('src', e.target.result).removeClass('d-none');
+                                }
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    } else {
+                        // 非TIFF文件使用标准预览方法
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            $('#printDecodePreview').attr('src', e.target.result).removeClass('d-none');
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                }
+            });
+
+            // 加密表单提交 - 使用点击事件代替表单提交
+            $('#printEncodeSubmitBtn').click(function() {
+                if (!$('#printEncodeImage').val() || !$('#printSecretMessage').val()) {
+                    alert('请选择图片并输入加密数值');
+                    return;
+                }
+                
+                const formData = new FormData($('#printEncodeForm')[0]);
+                
+                // 显示加载状态
+                $(this).html('<i class="fas fa-spinner fa-spin me-2"></i>处理中...').prop('disabled', true);
+                
+                $.ajax({
+                    url: '/algorithm/print/encode',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        // 恢复按钮状态
+                        $('#printEncodeSubmitBtn').html('<i class="fas fa-lock me-2"></i>加密图像').prop('disabled', false);
+                        
+                        if (response.status === 'success') {
+                            // 显示加密后的图像 - 使用JPG预览
+                            let previewUrl = '/processed/' + (response.preview || response.output);
+                            let downloadUrl = '/processed/' + response.output;
+                            
+                            // 添加时间戳防止缓存
+                            const timestamp = new Date().getTime();
+                            previewUrl = previewUrl + '?t=' + timestamp;
+                            
+                            $('#printEncodedImage').attr('src', previewUrl);
+                            $('#printDownloadEncodedBtn').attr('href', downloadUrl).attr('download', response.output);
+                            $('#printEncodeResult').removeClass('d-none');
+                            
+                            // 滚动到结果区域
+                            $('html, body').animate({
+                                scrollTop: $('#printEncodeResult').offset().top - 100
+                            }, 500);
+                        } else {
+                            let errorMsg = response.message || '未知错误';
+                            if (errorMsg.includes('StegaStampEncoder') || errorMsg.includes('size mismatch')) {
+                                errorMsg = '模型参数不匹配。这通常是因为模型版本不一致导致的，请联系技术支持。';
+                            }
+                            alert('加密失败：' + errorMsg);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // 恢复按钮状态
+                        $('#printEncodeSubmitBtn').html('<i class="fas fa-lock me-2"></i>加密图像').prop('disabled', false);
+                        console.error("错误详情:", error, xhr.responseText);
+                        alert('加密请求失败，请稍后重试。如果问题持续存在，请联系管理员。');
+                    }
+                });
+            });
+
+            // 解密表单提交 - 使用点击事件代替表单提交
+            $('#printDecodeSubmitBtn').click(function() {
+                if (!$('#printDecodeImage').val()) {
+                    alert('请选择要解密的图片');
+                    return;
+                }
+                
+                const formData = new FormData($('#printDecodeForm')[0]);
+                
+                // 显示加载状态
+                $(this).html('<i class="fas fa-spinner fa-spin me-2"></i>处理中...').prop('disabled', true);
+                
+                $.ajax({
+                    url: '/algorithm/print/decode',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        // 恢复按钮状态
+                        $('#printDecodeSubmitBtn').html('<i class="fas fa-unlock-alt me-2"></i>解密图像').prop('disabled', false);
+                        
+                        if (response.status === 'success' && response.decode_message) {
+                            // 显示解密结果
+                            const decodedValue = response.decode_message;
+                            $('#printDecodedMessage').text(decodedValue);
+                            
+                            // 计算二进制表示
+                            const binaryValue = parseInt(decodedValue).toString(2).padStart(16, '0');
+                            $('#printDecodedBinary').text(binaryValue);
+                            
+                            $('#printDecodeResult').removeClass('d-none');
+                            
+                            // 滚动到结果区域
+                            $('html, body').animate({
+                                scrollTop: $('#printDecodeResult').offset().top - 100
+                            }, 500);
+                        } else {
+                            let errorMsg = response.message || '未能提取有效信息';
+                            
+                            // 如果文件是TIFF格式，添加提示
+                            const fileName = $('#printDecodeImage').val();
+                            if (fileName && (fileName.toLowerCase().endsWith('.tiff') || fileName.toLowerCase().endsWith('.tif'))) {
+                                errorMsg += '\n\n注意：如果您上传的是TIFF格式图像，请确保它是用本系统加密生成的。';
+                            }
+                            
+                            alert('解密失败：' + errorMsg);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // 恢复按钮状态
+                        $('#printDecodeSubmitBtn').html('<i class="fas fa-unlock-alt me-2"></i>解密图像').prop('disabled', false);
+                        console.error("解密错误详情:", error, xhr.responseText);
+                        alert('解密请求失败，请稍后重试。');
+                    }
+                });
+            });
+        });
+        
+        // Texture 纹理水印模块功能
+        $(document).ready(function() {
+            // 生成随机二进制序列
+            $('#textureGenerateRandom').click(function() {
+                const length = Math.floor(Math.random() * 10) + 5; // 生成5-15位的随机二进制序列
+                let randomBinary = '';
+                for (let i = 0; i < length; i++) {
+                    randomBinary += Math.round(Math.random());
+                }
+                $('#textureSecretMessage').val(randomBinary);
+            });
+            
+            // 显示上传图片预览
+            $('#textureEncodeImage').change(function() {
+                if (this.files && this.files[0]) {
+                                    const reader = new FileReader();
+                                    reader.onload = function(e) {
+                        $('#textureEncodePreview').attr('src', e.target.result).removeClass('d-none');
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            $('#textureDecodeImage').change(function() {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#textureDecodePreview').attr('src', e.target.result).removeClass('d-none');
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            // 纹理水印加密处理
+            $('#textureEncodeSubmitBtn').click(function() {
+                if (!$('#textureEncodeImage').val() || !$('#textureSecretMessage').val()) {
+                    alert('请选择图片并输入加密信息');
+                    return;
+                }
+                
+                const formData = new FormData($('#textureEncodeForm')[0]);
+                
+                // 显示加载状态
+                $(this).html('<i class="fas fa-spinner fa-spin me-2"></i>处理中...').prop('disabled', true);
+                
+                $.ajax({
+                    url: '/algorithm/texture/encode',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        // 恢复按钮状态
+                        $('#textureEncodeSubmitBtn').html('<i class="fas fa-lock me-2"></i>加密图像').prop('disabled', false);
+                        
+                        if (response.processed_filename) {
+                            // 显示加密后的图像
+                            const currentTime = new Date().getTime(); // 添加时间戳防止缓存
+                            const previewUrl = '/processed/' + response.processed_filename + '?t=' + currentTime;
+                            
+                            $('#textureEncodedImage').attr('src', previewUrl);
+                            $('#textureDownloadEncodedBtn').attr('href', previewUrl).attr('download', response.processed_filename);
+                            $('#textureEncodeResult').removeClass('d-none');
+                            
+                            // 滚动到结果区域
+                            $('html, body').animate({
+                                scrollTop: $('#textureEncodeResult').offset().top - 100
+                            }, 500);
+                        } else {
+                            alert('加密失败：无法生成加密图像');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // 恢复按钮状态
+                        $('#textureEncodeSubmitBtn').html('<i class="fas fa-lock me-2"></i>加密图像').prop('disabled', false);
+                        console.error("错误详情:", error, xhr.responseText);
+                        alert('加密请求失败，请稍后重试。');
+                    }
+                });
+            });
+            
+            // 纹理水印解密处理
+            $('#textureDecodeSubmitBtn').click(function() {
+                if (!$('#textureDecodeImage').val()) {
+                    alert('请选择要解密的图片');
+                    return;
+                }
+                
+                const formData = new FormData($('#textureDecodeForm')[0]);
+                
+                // 显示加载状态
+                $(this).html('<i class="fas fa-spinner fa-spin me-2"></i>处理中...').prop('disabled', true);
+                
+                $.ajax({
+                    url: '/algorithm/texture/decode',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        // 恢复按钮状态
+                        $('#textureDecodeSubmitBtn').html('<i class="fas fa-unlock-alt me-2"></i>解密图像').prop('disabled', false);
+                        
+                        if (response.decode_message) {
+                            // 显示解密结果
+                            const decodedMessage = response.decode_message;
+                            $('#textureDecodedMessage').text(decodedMessage);
+                            
+                            // 显示二进制表示（如果结果不是二进制，则尝试转换）
+                            let binaryRepresentation = decodedMessage;
+                            // 判断是否为二进制字符串
+                            if (!/^[01]+$/.test(decodedMessage)) {
+                                // 尝试将文本转换为二进制表示
+                                try {
+                                    binaryRepresentation = Array.from(decodedMessage)
+                                        .map(char => char.charCodeAt(0).toString(2).padStart(8, '0'))
+                                        .join(' ');
+                                } catch (e) {
+                                    binaryRepresentation = '无法转换为二进制';
+                                }
+                            }
+                            $('#textureDecodedBinary').text(binaryRepresentation);
+                            
+                            $('#textureDecodeResult').removeClass('d-none');
+                            
+                            // 滚动到结果区域
+                            $('html, body').animate({
+                                scrollTop: $('#textureDecodeResult').offset().top - 100
+                            }, 500);
+                        } else {
+                            alert('解密失败：未能提取有效信息');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // 恢复按钮状态
+                        $('#textureDecodeSubmitBtn').html('<i class="fas fa-unlock-alt me-2"></i>解密图像').prop('disabled', false);
+                        console.error("解密错误详情:", error, xhr.responseText);
+                        alert('解密请求失败，请稍后重试。');
+                    }
+                });
+            });
+        });
+        
+        // Clothes 民族服饰分类功能
+        $(document).ready(function() {
+            // 显示上传图片预览
+            $('#clothesImage').change(function() {
+                if (this.files && this.files[0]) {
+                                const reader = new FileReader();
+                                reader.onload = function(e) {
+                        $('#clothesPreview').attr('src', e.target.result).removeClass('d-none');
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            // 服饰分类表单提交
+            $('#clothesClassifyForm').submit(function(e) {
+                e.preventDefault();
+                
+                if (!$('#clothesImage').val()) {
+                    alert('请选择要识别的图片');
+                    return;
+                }
+                
+                const formData = new FormData(this);
+                
+                // 显示加载状态
+                const submitBtn = $(this).find('button[type="submit"]');
+                submitBtn.html('<i class="fas fa-spinner fa-spin me-2"></i>识别中...').prop('disabled', true);
+                
+                $.ajax({
+                    url: '/algorithm/clothes/classify',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        // 恢复按钮状态
+                        submitBtn.html('<i class="fas fa-search me-2"></i>识别服饰').prop('disabled', false);
+                        
+                        if (response && Object.keys(response).length > 0) {
+                            // 显示结果
+                            displayClothesResults(response);
+                        } else {
+                            alert('无法识别服饰，请尝试使用其他图片');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        // 恢复按钮状态
+                        submitBtn.html('<i class="fas fa-search me-2"></i>识别服饰').prop('disabled', false);
+                        console.error("识别错误详情:", error, xhr.responseText);
+                        alert('识别请求失败，请稍后重试。');
+                    }
+                });
+            });
+            
+            // 显示识别结果
+            function displayClothesResults(results) {
+                // 清空之前的结果
+                $('#otherResults').empty();
+                
+                // 获取结果数组
+                const resultsArray = Object.entries(results).map(([nation, probability]) => ({
+                    nation,
+                    probability: parseFloat(probability)
+                })).sort((a, b) => b.probability - a.probability);
+                
+                if (resultsArray.length === 0) {
+                    alert('无法识别服饰，请尝试使用其他图片');
+                    return;
+                }
+                
+                // 显示顶部结果
+                const topResult = resultsArray[0];
+                $('#topNation').text(topResult.nation);
+                $('#topProbability').text((topResult.probability * 100).toFixed(2) + '%');
+                $('#topProbabilityBar').css('width', (topResult.probability * 100) + '%');
+                
+                // 显示民族简介
+                showNationInfo(topResult.nation);
+                
+                // 显示其他可能的结果
+                if (resultsArray.length > 1) {
+                    const otherResultsContainer = $('#otherResults');
+                    
+                    for (let i = 1; i < Math.min(5, resultsArray.length); i++) {
+                        const result = resultsArray[i];
+                        const probabilityPercent = (result.probability * 100).toFixed(2);
+                        const width = Math.max(5, result.probability * 100); // 确保至少有5%的宽度可见
+                        
+                        const resultItem = `
+                            <div class="other-result-item mb-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="nation-name">${result.nation}</span>
+                                    <span class="probability-value">${probabilityPercent}%</span>
+                                </div>
+                                <div class="progress mt-1" style="height: 4px;">
+                                    <div class="progress-bar" role="progressbar" style="width: ${width}%" aria-valuenow="${probabilityPercent}" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        `;
+                        
+                        otherResultsContainer.append(resultItem);
+                    }
+                }
+                
+                // 显示结果区域
+                $('#clothesResult').removeClass('d-none');
+                
+                // 滚动到结果区域
+                $('html, body').animate({
+                    scrollTop: $('#clothesResult').offset().top - 100
+                }, 500);
+            }
+            
+            // 显示民族简介信息
+            function showNationInfo(nation) {
+                const nationInfo = getNationDescription(nation);
+                if (nationInfo) {
+                    $('#nationInfoTitle').text(nation + '服饰特点');
+                    $('#nationDescription').html(nationInfo);
+                    $('#nationInfo').removeClass('d-none');
+                } else {
+                    $('#nationInfo').addClass('d-none');
+                }
+            }
+            
+            // 获取民族简介
+            function getNationDescription(nation) {
+                const descriptions = {
+                    '汉族': '汉族服饰历史悠久，风格多样，常见的有旗袍、长衫、马褂等。传统汉服以宽袖、交领、系带为特点，颜色多为素雅，刺绣精美，象征着中华文明的源远流长。',
+                    '蒙古族': '蒙古族服饰以长袍为主，称为"蒙古袍"，特点是大襟、对襟，腰间系带。男女服装区别不大，颜色鲜艳，多以棉布、皮毛、呢绒为材料，适应北方游牧生活。',
+                    '藏族': '藏族服饰厚重保暖，以藏袍为基本形式，称为"察瓦"或"丘巴"。高原气候影响，服饰多用毛料制成，袖子宽大，腰间束带，挂有装饰和实用器具。',
+                    '苗族': '苗族服饰色彩艳丽，图案丰富，以蜡染、刺绣、织锦等工艺闻名。女装多为短上衣、百褶裙，装饰有银饰，充满民族特色和艺术魅力。',
+                    '彝族': '彝族服饰富有地方特色，男性多穿对襟长衫，女性着绣花上衣、长裙或裤子，头饰各异。不同地区彝族服饰有明显区别，但均色彩鲜明，纹饰丰富。',
+                    '壮族': '壮族服装简洁实用，女装以对襟上衣配筒裙为主，男装多为上窄下宽的对襟衣裤。传统壮族服饰多选用青、黑、蓝等颜色，图案多为几何形或植物纹。',
+                    '布依族': '布依族服饰与壮族相似，但更具地方特色。女装多为对襟短衣，配百褶裙或长裤，头巾样式多样。服饰上的刺绣图案多为自然景物，色彩艳丽。',
+                    '维吾尔族': '维吾尔族服饰色彩鲜艳，图案丰富。男性常戴花帽（"多帕"），穿长袍（"袷袢"）；女性多穿连衣裙，戴花帽或头巾，服饰上有丰富的民族图案。',
+                    '回族': '回族服饰朴素大方，男性多穿白色或黑色对襟长衫，头戴白帽；女性通常着宽大长裙，头戴盖头或头巾，体现着伊斯兰文化的影响。',
+                    '朝鲜族': '朝鲜族传统服饰是"韩服"，女装为短上衣配高腰长裙，男装为短上衣配宽松长裤，再穿马甲或长袍。色彩淡雅，线条简洁流畅，尽显东方美。',
+                    '满族': '满族服饰最典型的是旗袍和马褂。旗袍为女性服装，立领、斜襟、开衩；马褂为男性外套，盘扣设计。满族服饰影响了整个中国近代服装的发展。',
+                    '侗族': '侗族服饰色彩艳丽，女装多为对襟上衣，配围裙和百褶裙，头饰有发髻、盘头等；男装较为简单，多为对襟上衣配长裤。服饰上的刺绣图案精美。',
+                    '瑶族': '瑶族服饰种类繁多，常见的有盘瑶、红瑶、花瑶等。女装多为对襟上衣，配长裤或裙子，头饰复杂；男装较为简单，多为对襟上衣和长裤。',
+                    '白族': '白族服饰朴素典雅，女装以"对襟三家花"为特色，即对襟上衣配百褶围腰和裤子；男装为立领上衣配长裤，外罩背心。色彩以白、蓝为主。',
+                    '土家族': '土家族服饰以蓝、黑色为主。女装为交领上衣，配百褶裙或长裤，饰以刺绣；男装为对襟上衣配长裤，简洁实用，适合山区劳作。',
+                    '傣族': '傣族服饰轻薄透气，女装为紧身上衣配筒裙（"腊"），男装为对襟短衣配长裤，头戴包头巾。服饰色彩多样，适应热带气候。',
+                    '僳僳族': '僳僳族服饰艳丽多彩，女装为交领上衣配百褶裙，装饰有各种银饰；男装为对襟上衣配长裤，外罩坎肩。服饰上的刺绣图案丰富多样。',
+                    '畲族': '畲族服饰色彩鲜明，女装为对襟上衣配围裙和长裤，头饰为包头巾；男装为立领对襟上衣配长裤。服饰上有丰富的刺绣图案，多为花草和几何纹。',
+                    '羌族': '羌族服饰以白、黑、蓝色为主。女装为交领上衣配围裙和长裤，头戴羊角形头饰；男装为对襟上衣配长裤，外罩皮袄。服饰装饰有羊角、麦穗等图案。',
+                    '俄罗斯族': '中国俄罗斯族服饰保留了俄罗斯民族特色，同时融合了本地文化。女装为连衣裙，配头巾；男装为衬衣配长裤，外罩背心或外套。刺绣图案多为花草。'
+                };
+                
+                return descriptions[nation] || null;
+            }
+        });
+    </script>
+</body>
+</html> 
