@@ -3,19 +3,11 @@ $(document).ready(function() {
     // 导航切换
     $('.nav-link').click(function(e) {
         e.preventDefault();
-        
-        // 移除所有导航项的active类
         $('.nav-link').removeClass('active');
-        // 为当前点击的导航项添加active类
         $(this).addClass('active');
-        
-        // 获取目标部分
         const targetSection = $(this).data('section');
-        
-        // 隐藏所有内容部分
-        $('.content-section').addClass('d-none');
-        // 显示目标部分
-        $(`#${targetSection}`).removeClass('d-none');
+        $('.content-section').addClass('d-none').removeClass('active');
+        $(`#${targetSection}`).removeClass('d-none').addClass('active');
     });
     
     // 生成随机二进制序列
@@ -64,31 +56,26 @@ $(document).ready(function() {
     // 表单提交事件
     $('#printEncodeForm').submit(function(e) {
         e.preventDefault();
-        // TODO: 实现加密API调用
         alert('加密功能需要后端API支持');
     });
     
     $('#printDecodeForm').submit(function(e) {
         e.preventDefault();
-        // TODO: 实现解密API调用
         alert('解密功能需要后端API支持');
     });
     
     $('#textureEncodeForm').submit(function(e) {
         e.preventDefault();
-        // TODO: 实现加密API调用
         alert('加密功能需要后端API支持');
     });
     
     $('#textureDecodeForm').submit(function(e) {
         e.preventDefault();
-        // TODO: 实现解密API调用
         alert('解密功能需要后端API支持');
     });
     
     $('#clothesClassifyForm').submit(function(e) {
         e.preventDefault();
-        // TODO: 实现分类API调用
         alert('分类功能需要后端API支持');
     });
 }); 

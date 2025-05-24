@@ -1206,6 +1206,15 @@
                 return descriptions[nation] || null;
             }
         });
+
+        $('.nav-link').click(function(e) {
+            e.preventDefault();
+            $('.nav-link').removeClass('active');
+            $(this).addClass('active');
+            const targetSection = $(this).data('section');
+            $('.content-section').addClass('d-none').removeClass('active');
+            $(`#${targetSection}`).removeClass('d-none').addClass('active');
+        });
     </script>
 </body>
 </html> 
