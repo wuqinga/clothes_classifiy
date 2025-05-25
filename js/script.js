@@ -85,7 +85,7 @@ $(document).ready(function() {
         var $btn = $(this).find('button[type="submit"]');
         $btn.html('<i class="fas fa-spinner fa-spin me-2"></i>识别中...').prop('disabled', true);
         $.ajax({
-            url: 'https://0e62-202-120-234-217.ngrok-free.app/classify', // 只拼接/classify，主机部分留空，方便ngrok
+            url: 'https://860e-202-120-234-217.ngrok-free.app/classify', // 只拼接/classify，主机部分留空，方便ngrok
             type: 'POST',
             data: formData,
             processData: false,
